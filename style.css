@@ -1,0 +1,182 @@
+:root {
+  --bg: #10140f;
+  --panel: #1a2218;
+  --line: rgba(214, 232, 176, 0.08);
+  --text: #eef6df;
+  --muted: #9aab86;
+  --accent: #c6f25d;
+  --accent-deep: #7ea832;
+  --food: #ff6b4a;
+  --danger: #ff8a73;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(198, 242, 93, 0.16), transparent 32%),
+    var(--bg);
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+.game {
+  width: min(100%, 520px);
+  display: grid;
+  gap: 16px;
+}
+
+.top {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+}
+
+.hint {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.scores {
+  display: flex;
+  gap: 10px;
+}
+
+.score {
+  min-width: 88px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.score span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.score strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.board-wrap {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #141b13;
+  box-shadow: var(--shadow);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    #141b13;
+  background-size: 24px 24px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(10, 14, 9, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.overlay[hidden] {
+  display: none;
+}
+
+.card {
+  width: min(100%, 280px);
+  text-align: center;
+}
+
+.card h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.card p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font: inherit;
+  font-weight: 700;
+  color: #17200d;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+button:hover {
+  background: #d5ff78;
+}
+
+.controls {
+  display: grid;
+  justify-content: center;
+  gap: 8px;
+}
+
+.controls-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pad {
+  width: 64px;
+  height: 48px;
+  border-radius: 14px;
+  color: var(--text);
+  background: var(--panel);
+}
+
+.pad:hover {
+  background: #243022;
+}
+
+@media (min-width: 720px) {
+  .controls {
+    display: none;
+  }
+}
